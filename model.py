@@ -10,13 +10,13 @@ import pickle
 def generate_synthetic_data(num_samples = 100000):
     X = np.random.rand(num_samples, 3) # num_samples rows, 3 cols
     # 0.12 is 30 / 255
-    Y = np.array([(1 if (abs(r-b)<=0.12 and abs(b-g)<=0.12 and abs(r-b)<=0.12) else 0) for r, g, b in X]) # 1 if colour is "muted"
+    Y = np.array([(1 if (abs(r-b)<=0.08 and abs(b-g)<=0.08 and abs(r-b)<=0.08) else 0) for r, g, b in X]) # 1 if colour is "muted"
     return X, Y
 
 # generate data & split into train and test sets
 X, Y = generate_synthetic_data()
-print(f"X: {X}")
-print(f"Y: {Y}")
+# print(f"X: {X}")
+# print(f"Y: {Y}")
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42) # 20% testing
 # convert data to PyTorch tensors
 X_train = torch.tensor(X_train, dtype=torch.float32)
