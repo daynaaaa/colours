@@ -36,7 +36,7 @@ def display_colours():
     cols = st.columns(5)
     for i in range(5):
         r, g, b = generate_muted_color()
-        cols[i].markdown(f'<div style="background-color: #{r:02x}{g:02x}{b:02x}; width: 100px; height: 100px; display: inline-block; margin: 5px;"></div>', unsafe_allow_html=True)
+        cols[i].markdown(f'<div style="background-color: #{r:02x}{g:02x}{b:02x}; width: 100px; height: 100px; display: inline-block; margin: 5px; border-radius: 50%;"></div>', unsafe_allow_html=True)
         cols[i].write(f'RGB: ({r}, {g}, {b})')
         cols[i].write(f'Hex: #{r:02x}{g:02x}{b:02x}')
         #display_colour(r, g, b)
